@@ -1,0 +1,48 @@
+<button type="button" class="btn btn-primary" (click)="openModal(template)">Add Student</button>
+<template #template>
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">Add Student</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                   <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+<form [formGroup]="complexForm" (ngSubmit)="submitForm(complexForm.value)">
+
+<div class="adddata">      
+<div class="container">
+<div class="formPart">
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="FirstName" [formControl]="complexForm.controls['FirstName']">
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <input   class="form-control" type="text" placeholder="LastName" [formControl]="complexForm.controls['LastName']">
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <input   class="form-control" type="text" placeholder="Email" [formControl]="complexForm.controls['Email']">
+
+        </div>
+    </div>
+
+</div>
+</div>
+</div>
+<div class="submitbtn">
+    <button class="btn btn-primary submit" [disabled]="!complexForm.valid" (click)="modalRef.hide()">Submit</button>
+</div>
+
+</div>
+
+</form>
+</template>
